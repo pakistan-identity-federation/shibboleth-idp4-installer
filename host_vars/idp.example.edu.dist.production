@@ -4,13 +4,16 @@
 # ------------------------------------------------------------------------------
 
 # The host name of the target machine
-idp_host_name: "idp.example.edu"
+#idp_host_name: "idp.example.edu"
+idp_host_name: "idp.hec.gov.pk"
 
 # IdP Entity ID
-idp_entity_id: "https://idp.example.edu/idp/shibboleth"
+#idp_entity_id: "https://idp.example.edu/idp/shibboleth"
+idp_entity_id: "https://idp.hec.gov.pk/idp/shibboleth"
 
 # IdP 'Attribute Scope'
-idp_attribute_scope: "example.edu"
+#idp_attribute_scope: "example.edu"
+idp_attribute_scope: "hec.gov.pk"
 
 # Federation ID
 federation_id: "PKIFED"
