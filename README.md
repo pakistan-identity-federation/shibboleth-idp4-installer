@@ -18,6 +18,34 @@ This release is for Shibboleth version 4.1.5 running on Jetty 9.4.44
 ## License
 Apache License Version 2.0, January 2004
 
+## Required Checklist
+A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 or Stream, with the following minimum specifications: 
+
+    2 CPU
+    4GB RAM
+    10GB+ partition for OS
+
+## Server connectivity
+
+* You MUST have SSH access to the server
+* You MUST be able to execute commands as root on the system without limitation
+* The server MUST be routable from the public internet with a static IP. Often this means configuring the IP on a local network interface directly but advanced environments may handle this differently.
+* The static IP MUST have a publicly resolvable DNS entry. Typically of the form idp.example.edu
+* The server MUST be able to communicate with the wider internet without blockage due to firewall rules.
 
 
 ## Installation Steps
+
+1. Install Ubuntu 20.04.4 LTS or your selected OS (list given above).
+
+2. Update the OS 
+   ```
+   apt-get update && apt-get upgrade
+   ```
+  
+3. Change TimeZone w.r.t to your country:
+   ``` 
+   sudo timedatectl set-timezone Asia/Karachi 
+   ```
+   
+4. Set hostname of the OS, The public domain name of the IdP. May be used in determined the entityID of the IdP.
