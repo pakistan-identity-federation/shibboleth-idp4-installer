@@ -12,7 +12,7 @@
     <!-- ========================================== -->
 
     <!-- Option 1: Using the subject's canonicalized principal name -->
-    <AttributeDefinition id="uid" xsi:type="PrincipalName" />
+	<!--    <AttributeDefinition id="uid" xsi:type="PrincipalName" /> -->
 
     <!-- Option 2: From the user's UID attribute in the directory -->
     <!--
@@ -22,27 +22,68 @@
     -->
 
     <!-- Option 3: From the user's sAMAccountName in Active Directory -->
-    <!--
-    <AttributeDefinition id="uid" xsi:type="Simple">
-       <InputDataConnector ref="ldap" attributeNames="sAMAccountName" />
+	<AttributeDefinition xsi:type="Simple" id="sAMAccountName">
+    <InputDataConnector ref="myLDAP" attributeNames="sAMAccountName" />
     </AttributeDefinition>
-    -->
 
     <!-- ========================================== -->
-    <!--         AAF CORE ATTRIBUTES                -->
+    <!--         PKIFED CORE ATTRIBUTES             -->
     <!-- ========================================== -->
+    
+	<!-- eduPersonPrincipalName -->
+	
+    <AttributeDefinition scope="%{idp.scope}" xsi:type="Scoped" id="eduPersonPrincipalName">
+    <InputDataConnector ref="myLDAP" attributeNames="sAMAccountName"/>
+    </AttributeDefinition>
 
-    <!-- auEduPersonSharedToken -->
+    <!-- eduPersonScopedAffiliation -->
+
+    <AttributeDefinition scope="%{idp.scope}" xsi:type="Scoped" id="eduPersonScopedAffiliation">
+    <InputDataConnector ref="myLDAP" attributeNames="description"/>
+    </AttributeDefinition>
+
+    <!-- eduPersonTargetedID -->
+
+    <AttributeDefinition xsi:type="SAML2NameID" id="eduPersonTargetedID"
+    nameIdFormat="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">
+        <InputDataConnector ref="StoredIDConnector" attributeNames="StoredID" />
+        <AttributeEncoder xsi:type="SAML1XMLObject" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10"/>
+        <AttributeEncoder xsi:type="SAML2XMLObject" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" friendlyName="eduPersonTargetedID"/>
+    </AttributeDefinition>
+
+    <!-- mail -->
+    <AttributeDefinition id="mail" xsi:type="Simple">
+       <InputDataConnector ref="myLDAP" attributeNames="mail" />
+    </AttributeDefinition>
+    
+    <!-- givenName -->
+    <AttributeDefinition id="givenName" xsi:type="Simple">
+       <InputDataConnector ref="myLDAP" attributeNames="givenName" />
+    </AttributeDefinition>
+    
+    <!-- sn (surname) -->
+    <AttributeDefinition id="sn" xsi:type="Simple">
+       <InputDataConnector ref="myLDAP" attributeNames="sn" />
+    </AttributeDefinition>
+
+    <!-- displayName (displayName) -->
+
+    <AttributeDefinition id="displayName" xsi:type="Simple">
+    <InputDataConnector ref="myLDAP" attributeNames="displayName" />
+    </AttributeDefinition>
+	
+	<!-- o (Organisation) -->
+    <AttributeDefinition xsi:type="Simple" id="o">
+        <InputDataConnector ref="staticAttributes" attributeNames="o" />
+    </AttributeDefinition>
+	
+	<!-- auEduPersonSharedToken 
     <AttributeDefinition id="auEduPersonSharedToken" xsi:type="Simple">
         <InputDataConnector ref="sharedToken" attributeNames="auEduPersonSharedToken" />
     </AttributeDefinition>
-
-    <!-- displayName -->
-    <AttributeDefinition id="displayName" xsi:type="Simple">
-       <InputDataConnector ref="ldap" attributeNames="displayName" />
-    </AttributeDefinition>
-
-    <!-- eduPersonAffiliation -->
+    -->
+    
+    <!-- eduPersonAffiliation 
     <AttributeDefinition xsi:type="ScriptedAttribute" id="eduPersonAffiliation">
         <InputDataConnector ref="ldap" attributeNames="eduPersonAffiliation" />
         <Script><![CDATA[
@@ -85,25 +126,25 @@
             }
         ]]></Script>
     </AttributeDefinition>
-
-    <!-- eduPersonAssurance -->
+    -->
+    <!-- eduPersonAssurance 
     <AttributeDefinition id="eduPersonAssurance" xsi:type="Simple">
         <InputDataConnector ref="staticAttributes" attributeNames="eduPersonAssurance" />
     </AttributeDefinition>
-
+     -->
     
-    <!-- eduPersonEntitlement -->
+    <!-- eduPersonEntitlement 
     <AttributeDefinition id="eduPersonEntitlement" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="eduPersonEntitlement" />
     </AttributeDefinition>
-
+    -->
     <!-- eduPersonPrincipalName -->
     
-    <!-- Option 1: Appending the organisations scope to the user's UID -->
+    <!-- Option 1: Appending the organisations scope to the user's UID 
     <AttributeDefinition id="eduPersonPrincipalName" xsi:type="Scoped" scope="%{idp.scope}">
         <InputAttributeDefinition ref="uid" />
     </AttributeDefinition>
-
+    -->
     <!-- Option 2: From value in LDAP -->
     <!--           Note: The domain name suffix MUST match the scope value -->
     <!--                 assigned to the IdP (in the IdPs Scope value in the metadata -->
@@ -113,68 +154,41 @@
     </AttributeDefinition>
     -->
 
-    <!-- eduPersonScopedAffiliation -->
+    <!-- eduPersonScopedAffiliation 
 
     <AttributeDefinition xsi:type="Scoped" id="eduPersonScopedAffiliation" scope="%{idp.scope}">
         <InputAttributeDefinition ref="eduPersonAffiliation" />
     </AttributeDefinition>
+    -->
 
-    <!-- eduPersonTargetedID -->
-
-    <AttributeDefinition xsi:type="SAML2NameID" id="eduPersonTargetedID"
-    nameIdFormat="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent">
-        <InputDataConnector ref="StoredIDConnector" attributeNames="StoredID" />
-        <AttributeEncoder xsi:type="SAML1XMLObject" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10"/>
-        <AttributeEncoder xsi:type="SAML2XMLObject" name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" friendlyName="eduPersonTargetedID"/>
-    </AttributeDefinition>
-
-    <!-- mail -->
-    <AttributeDefinition id="mail" xsi:type="Simple">
-       <InputDataConnector ref="ldap" attributeNames="mail" />
-    </AttributeDefinition>
-
-    <!-- givenName -->
-    <AttributeDefinition id="givenName" xsi:type="Simple">
-       <InputDataConnector ref="ldap" attributeNames="givenName" />
-    </AttributeDefinition>
-
-    <!-- sn (surname) -->
-    <AttributeDefinition id="sn" xsi:type="Simple">
-       <InputDataConnector ref="ldap" attributeNames="sn" />
-    </AttributeDefinition>
-
-    <!-- schacHomeOrganisation -->
+    <!-- schacHomeOrganisation 
     <AttributeDefinition id="schacHomeOrganization" xsi:type="Simple">
         <InputDataConnector ref="staticAttributes" attributeNames="schacHomeOrganization" />
     </AttributeDefinition>
-
-    <!-- schacHomeOrganisationType -->
+    -->
+    <!-- schacHomeOrganisationType 
     <AttributeDefinition id="schacHomeOrganizationType" xsi:type="Simple">
         <InputDataConnector ref="staticAttributes" attributeNames="schacHomeOrganizationType" />
     </AttributeDefinition>
+    -->
 
-    <!-- o (Organisation) -->
-    <AttributeDefinition xsi:type="Simple" id="o">
-        <InputDataConnector ref="staticAttributes" attributeNames="o" />
-    </AttributeDefinition>
-
-    <!-- eduPersonOrcid -->
+    <!-- eduPersonOrcid 
     <AttributeDefinition id="eduPersonOrcid" xsi:type="Simple">
        <InputDataConnector ref="ldap" attributeNames="eduPersonOrcid" />
     </AttributeDefinition>
-
+    -->
     <!-- ========================================== -->
     <!--     AAF improtant Optional ATTRIBUTES       -->
     <!-- ========================================== -->
 
-    <!-- dsdStudentId - Used by myEquals -->
+    <!-- dsdStudentId - Used by myEquals 
     <AttributeDefinition xsi:type="Simple" id="dsdStudentId">
         <InputDataConnector ref="ldap" attributeNames="studentNumber" />
     </AttributeDefinition>
-
+    -->
     <!-- cn (commonName) - Previously a CORE attribute, still used by many services -->
     <!--                   Note: Script is used to ensure cn is of the correct format -->
-    <!--                         for the AAF. "FirstName SPACE Surname". -->
+    <!--                         for the AAF. "FirstName SPACE Surname". 
 
     <AttributeDefinition xsi:type="ScriptedAttribute" id="cn">
         <InputAttributeDefinition ref="givenName" />
@@ -199,11 +213,11 @@
             ]]>
         </Script>
     </AttributeDefinition>
-
-{% if source_persistent_id != "" %}
+    -->
+    <!-- {% if source_persistent_id != "" %} -->
     <!-- ========================================== -->
     <!-- SAML Subject ID Attributes                 -->
-    <!-- ========================================== -->
+    <!-- ========================================== 
 
     <AttributeDefinition xsi:type="Scoped" id="samlSubjectID" scope="%{idp.scope}">
         <InputDataConnector ref="ldap" attributeNames="%{idp.persistentId.sourceAttribute}"/>
@@ -213,12 +227,12 @@
         <InputDataConnector ref="computed" attributeNames="computedId"/>
     </AttributeDefinition>
 {% endif %}
-
+    -->
     
     <!-- ========================================== -->
     <!--      Data Connectors                       -->
     <!-- ========================================== -->
-
+    <!--
     <DataConnector id="staticAttributes" xsi:type="Static">
         <Attribute id="schacHomeOrganization">
             <Value>{{ home_organisation }}</Value>
@@ -234,13 +248,13 @@
             <Value>urn:mace:aaf.edu.au:iap:authn:1</Value>
         </Attribute>
     </DataConnector>
+	-->
 
-    <DataConnector id="ldap" xsi:type="LDAPDirectory"
+    <DataConnector id="myLDAP" xsi:type="LDAPDirectory"
         ldapURL="%{idp.attribute.resolver.LDAP.ldapURL}"
         baseDN="%{idp.attribute.resolver.LDAP.baseDN}"
         principal="%{idp.attribute.resolver.LDAP.bindDN}"
         principalCredential="%{idp.attribute.resolver.LDAP.bindDNCredential}"
-        useStartTLS="%{idp.attribute.resolver.LDAP.useStartTLS:true}"
         connectTimeout="%{idp.attribute.resolver.LDAP.connectTimeout}"
         responseTimeout="%{idp.attribute.resolver.LDAP.responseTimeout}">
         <FilterTemplate>
@@ -279,9 +293,8 @@
             algorithm="%{idp.persistentId.algorithm:SHA}"
         encoding="BASE32">
 
-        <InputDataConnector ref="ldap" attributeNames="%{idp.newPersistentId.sourceAttribute}" />
+        <InputDataConnector ref="myLDAP" attributeNames="%{idp.newPersistentId.sourceAttribute}" />
     </DataConnector>
 {% endif %}
-
 
 </AttributeResolver>
