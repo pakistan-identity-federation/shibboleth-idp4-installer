@@ -8,8 +8,6 @@ The AAF Shibboleth IdP Installer is designed to automate the install of version 
 * ORACLE Linux 7 or 8
 * Ubuntu 20.04 (Focal Fossa)
 
-For a full set of documentation and guidance on upgrading from Shibboleth version 3 please refer to the [AAF IdPv4 Installer Knowledge base](https://aaf.freshdesk.com/support/solutions/articles/19000120020-shibboleth-idpv4-installer).
-
 ## Status
 This software is actively being developed and maintained. It is ready for use in production environments.
 
