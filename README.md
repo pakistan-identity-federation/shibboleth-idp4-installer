@@ -20,11 +20,3 @@ This release is for Shibboleth version 4.1.5 running on Jetty 9.4.44
 ## License
 Apache License Version 2.0, January 2004
 
-# AAF Rapid IdP
-
-Need a managed, secure and highly available cloud Identity Provider solution?
-
-[Contact the AAF about Rapid IdP today.](https://aaf.edu.au/rapid/)
-
-[<img src="https://aaf.edu.au/images/Rapid-IdP.png"  width="500"/>](https://aaf.edu.au/rapid/)
-
