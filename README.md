@@ -9,9 +9,7 @@ The AAF Shibboleth IdP Installer is designed to automate the install of version 
 * Ubuntu 20.04 (Focal Fossa)
 
 ## Status
-This installer is forked from AAF's shibboleth idp installer repository with some modifications to work with Pakistan Identity Federation (PKIFED).
-
-This software is actively being developed and maintained. It is ready for use in production environments.
+This installer is forked from AAF's shibboleth idp installer repository with some modifications to work with Pakistan Identity Federation (PKIFED). This software is actively being developed and maintained. It is ready for use in production environments.
 
 This version now enables the technical connection to eduGAIN, the global federation of federations.
 
