@@ -38,14 +38,27 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
 
 1. Install Ubuntu 20.04.4 LTS or your selected OS (list given above).
 
-2. Update the OS 
+2. Become ROOT:
+   * `sudo su -`
+
+3. Update the OS 
    ```
    apt-get update && apt-get upgrade
    ```
   
-3. Change TimeZone w.r.t to your country:
+4. Change TimeZone w.r.t to your country:
    ``` 
    sudo timedatectl set-timezone Asia/Karachi 
    ```
    
-4. Set hostname of the OS, The public domain name of the IdP. May be used in determined the entityID of the IdP.
+5. Set the IdP hostname, The public domain name of the IdP may be used in determined the entityID of the IdP.
+
+    (**ATTENTION**: *Replace `idp.example.org` with your IdP Full Qualified Domain Name and `<HOSTNAME>` with the IdP hostname*)
+
+   * `vim /etc/hosts`
+
+     ```bash
+     <YOUR SERVER IP ADDRESS> idp.example.org <HOSTNAME>
+     ```
+
+   * `hostnamectl set-hostname <HOSTNAME>`
