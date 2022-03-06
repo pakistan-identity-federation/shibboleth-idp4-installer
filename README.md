@@ -200,3 +200,66 @@ The following information is required by the IdP Installer and must be populated
 
 **Back-Channel enabled**	If enabled, the IdP will support back-channel requests. (Default is NOT enabled.)
 
+
+## How the Shibboleth IdP installer manages your configuration
+
+`IMPORTANT: All modifiable configuration is housed in the directory: `
+
+ /<INSTALL_BASE>/shibboleth-idp4-installer/repository/assets/<HOST_NAME>
+
+ By default <INSTALL_BASE> = /opt`
+ 
+If you make configuration changes directly within /opt/shibboleth/shibboleth-idp, /opt/jetty or elsewhere your installation will become unsupported and you may have difficulties when upgrading. 
+
+## **Updating the Shibboleth IdP with customisations**
+
+## **Deploy**
+
+To deploy the changes you have made to the IdP run the deploy script.
+
+**/opt/shibboleth-idp4-installer/repository/deploy**
+
+Changes to your assets area will be deployed to the operational IdP and the IdP will be restated. There will be a short outage of the IdP as it is restarted, usually less than 2 minutes.
+
+**Actions undertaken during an deployment**
+
+The deploy process will perform the following:
+
+1. Update underlying operating system packages to ensure any security issues are addressed
+
+2. Apply any configuration changes made within the assets directory for: 
+
+   * Shibboleth IdP
+   * Jetty
+
+3. RESTART all dependant processes.
+
+You MUST have a tested rollback plan in place before running an deployment to ensure any unanticipated changes can be reversed.
+
+## **Upgrade**
+
+To upgrade to a later version of the IdP or supporting software run the upgrade script.
+
+**/opt/shibboleth-idp4-installer/repository/upgrade**
+
+This action only upgrades the Ansilbe configuration, tasks and templates used to deploy the IdP. It will NOT deploy the changes. You MUST deploy the IdP as a separate step for the changes to the Ansible files to be effected.
+
+
+## **Actions undertaken during an upgrade**
+
+The Ansible configuration is synced with the contents of the AAF IdP v4 installer Git Hub repository. Changes made by the AAF will be reflected in your repository ready for the next deployment. Changes could include
+
+    Minor bug fixes and improvements to the installer
+    Changes to versions of software to be installer, generally Shibboleth or Jetty
+    Additional functionally being added to the IdP
+    
+ ## Common commands
+ 
+ # Apply configuration changes to the IdP
+/opt/shibboleth-idp-installer/repository/upgrade
+
+# Deploy changes in your repository to your IdP
+/opt/shibboleth-idp-installer/repository/deploy
+
+# Restart the IdP (Jetty)
+systemctl restart idp
