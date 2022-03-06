@@ -130,19 +130,19 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
 
     *   Mistyped config in the [main], [ldap] or [advanced] sections
     
-    If you force bootstrap-v4.sh to run again once initial installation has completed the action MAY be destructive.
+   If you force bootstrap-v4.sh to run again once initial installation has completed the action MAY be destructive.
     
    ## Allowing the installer to run again
  
-    In general you will never need to re-run the bootstrap-v4.sh script after it has completed creating the `/opt/shibboleth-v4-installer` directory. 
+   In general you will never need to re-run the bootstrap-v4.sh script after it has completed creating the `/opt/shibboleth-v4-installer` directory. 
     
-    You should use the `deploy` or `upgrade` scripts instead.
+   You should use the `deploy` or `upgrade` scripts instead.
     
-    If you must re-run bootstrap-v4.sh then you remove the lock file first. Note this will overwrite any previous installations.
+   If you must re-run bootstrap-v4.sh then you remove the lock file first. Note this will overwrite any previous installations.
     
-    `rm /root/.lock-idp-bootstrap-v4 && ./bootstrap-v4.sh`
-    
-    The bootstrap-v4 process will now start over and attempt to install and configure your server to operate as a Shibboleth IdP.
+`    rm /root/.lock-idp-bootstrap-v4 && ./bootstrap-v4.sh`
+
+   The bootstrap-v4 process will now start over and attempt to install and configure your server to operate as a Shibboleth IdP.
 
 
    ## When Bootstrap-v4.sh completes
