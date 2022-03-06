@@ -107,7 +107,16 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
    For future review all installer output is logged to
    
    `/opt/shibboleth-idp-installer/activity.log`
-   
+
+10. Check the IdP logs
+    
+    The IdP writes its four log files into the directory `/var/log/shibboleth-idp`. It may take a few minutes for the log files to appear the first time the IdP starts.
+
+    Check `idp-warn.log` for any errors. This should only contain two Deprecation warnings that can be ignored.
+
+    Check `idp-process.log` from any ERRORS and and verify the Servlet has started. You should find the following content near the end of the file.
+    
+    
    
    ## Errors during installation
 
