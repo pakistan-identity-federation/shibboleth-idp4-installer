@@ -115,7 +115,18 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
     Check `idp-warn.log` for any errors. This should only contain two Deprecation warnings that can be ignored.
 
     Check `idp-process.log` from any ERRORS and and verify the Servlet has started. You should find the following content near the end of the file.
+
+11. Accessing the IdP
     
+    The IdP server should be responding the incoming requests. A web browser is simplest way to perform these tests but curl or wget will work.
+
+    The name of you IdP server should be the same as the value you supplied in the HOST_NAME value in bootstrap-v4.ini.
+
+    The IdP should NOT be listening on port 80.
+    **http://[HOST_NAME]**
+
+    The IdP should be listening on port 443. Attempting to access the root level of the IdP will redirect you to https://example.edu/ [Note: You will change this address      later in the configuration].
+    **https://[HOST_NAME]**
     
    
    ## Errors during installation
