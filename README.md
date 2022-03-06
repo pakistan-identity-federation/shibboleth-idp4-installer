@@ -71,8 +71,7 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
    
 7. For new installations download the bootstrap-v4.ini file as follows;
    ```bash
-      curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp4-installer/\
-      master/bootstrap-v4.ini > bootstrap-v4.ini
+      curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp4-installer/master/bootstrap-v4.ini > bootstrap-v4.ini
    ```
    Edit the bootstrap-v4.ini file; 
    
@@ -82,8 +81,19 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
 
      *    You MUST review, configure and uncomment each field listed in the [main] section
 
-     *    If you have LDAP details you SHOULD also configure the [ldap] section 
-9. 
+     *    If you have LDAP details you SHOULD also configure the [ldap] section
+     
+8.   Running the installer 
+     
+     Download and prepare the bootstrap-v4.sh for execution using the following command;
+     ```bash
+        curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp4-installer/master/bootstrap-v4.sh > bootstrap-v4.sh && chmod u+x bootstrap-v4.sh
+   ```
+     
+     
+
+
+10. 
 ## Environmental data for your IdP
 
 7. The following information is required by the IdP Installer and must be populated into the bootstrap-v4.ini file prior to running the installer.
