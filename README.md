@@ -123,11 +123,11 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
     The name of you IdP server should be the same as the value you supplied in the HOST_NAME value in bootstrap-v4.ini.
 
     The IdP should NOT be listening on port 80.
-    **http://[HOST_NAME]**
-
+`    **http://[HOST_NAME]**
+`
     The IdP should be listening on port 443. Attempting to access the root level of the IdP will redirect you to https://example.edu/ [Note: You will change this address      later in the configuration].
-    **https://[HOST_NAME]**
-    
+`    **https://[HOST_NAME]**
+`    
    
    ## Errors during installation
 
