@@ -109,7 +109,7 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
    `/opt/shibboleth-idp-installer/activity.log`
    
    
-   ### Errors during installation
+   ## Errors during installation
 
    If an error occurs, the logs prior to installer termination MUST be reviewed to understand the underpinning cause.
 
@@ -123,7 +123,7 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
 
     If you force bootstrap-v4.sh to run again once initial installation has completed the action MAY be destructive.
     
-    ### Allowing the installer to run again
+    ## Allowing the installer to run again
  
     In general you will never need to re-run the bootstrap-v4.sh script after it has completed creating the `/opt/shibboleth-v4-installer` directory. 
     
@@ -136,7 +136,7 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
     The bootstrap-v4 process will now start over and attempt to install and configure your server to operate as a Shibboleth IdP.
 
 
-    ### When Bootstrap-v4.sh completes
+    ## When Bootstrap-v4.sh completes
 
     When the scripts completes the mariadb, jetty and the IdP should be running. The IdP probably will not be able to authenticate and there may be some errors in the             Shibboleth log file /var/log/shibboleth-idp/idp-warn.log. This is a good start but indicates that additional configuration is required.
 
