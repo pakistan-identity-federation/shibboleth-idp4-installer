@@ -150,7 +150,7 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
   When the scripts completes the mariadb, jetty and the IdP should be running. The IdP probably will not be able to authenticate and there may be some errors in the             Shibboleth log file /var/log/shibboleth-idp/idp-warn.log. This is a good start but indicates that additional configuration is required.
 
 
-## Environmental data for your IdP
+## Environmental data for your IdP in bootstrap-v4.ini 
 
 The following information is required by the IdP Installer and must be populated into the bootstrap-v4.ini file prior to running the installer.
 
@@ -172,5 +172,5 @@ The following information is required by the IdP Installer and must be populated
 
 **Local firewall enabled**	If enabled, firewalld will be enabled and configured on the server allowing. (Default is enabled.)
 
-**Back-Channel enabled**	If enabled, the IdP will support back-channel requests. (Default is NOT enabled.)`
+**Back-Channel enabled**	If enabled, the IdP will support back-channel requests. (Default is NOT enabled.)
 
