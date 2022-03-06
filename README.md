@@ -72,7 +72,7 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
 
 7. For new installations download the bootstrap-v4.ini file as follows;
    ```bash
-      curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp4-installer/master/bootstrap-v4.ini > bootstrap-v4.ini
+   curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp4-installer/master/bootstrap-v4.ini > bootstrap-v4.ini
    ```
    Edit the bootstrap-v4.ini file; 
    
@@ -89,9 +89,15 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
      
      Download and prepare the bootstrap-v4.sh for execution using the following command;
      ```bash
-        curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp4-installer/master/bootstrap-v4.sh > bootstrap-v4.sh && chmod u+x bootstrap-v4.sh
-   ```
+     curl https://raw.githubusercontent.com/pakistan-identity-federation/shibboleth-idp4-installer/master/bootstrap-v4.sh > bootstrap-v4.sh && chmod u+x bootstrap-v4.sh
+     ```
      
+     Ensure that bootstrap-v4.ini is in the same directory used to download the bootstrap-v4.sh script.
+     
+     Run the following command as root;
+     `./bootstrap-v4.sh`
+     
+     The bootstrap-v4 process will now install and configure your server to operate as a Shibboleth IdP. 
      
 
 
