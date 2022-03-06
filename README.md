@@ -129,6 +129,8 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
     
     You should use the `deploy` or `upgrade` scripts instead.
     
+    If you must re-run bootstrap-v4.sh then you remove the lock file first. Note this will overwrite any previous installations.
+    
     `rm /root/.lock-idp-bootstrap-v4 && ./bootstrap-v4.sh`
     
     The bootstrap-v4 process will now start over and attempt to install and configure your server to operate as a Shibboleth IdP.
@@ -142,7 +144,7 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
 
     
 
-If you must re-run bootstrap-v4.sh then you remove the lock file first. Note this will overwrite any previous installations.
+
 ## Environmental data for your IdP
 
 7. The following information is required by the IdP Installer and must be populated into the bootstrap-v4.ini file prior to running the installer.
