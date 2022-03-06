@@ -164,6 +164,16 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
 
   When the scripts completes the mariadb, jetty and the IdP should be running. The IdP probably will not be able to authenticate and there may be some errors in the             Shibboleth log file /var/log/shibboleth-idp/idp-warn.log. This is a good start but indicates that additional configuration is required.
 
+   ## Using the new Hello World feature
+
+   Using the new Hello World feature introduced at version 4.1. It should show the default login page. You can try entering your credentials and one of two outcomes will occur;
+   1. Successful login and you receive an Access Denied message.
+   You need to configure the AccessByAdminUser adding your username to use. You will receive a list of your attributes as an Admin User.
+    
+   2. Successful login and you receive an Uncaught Exception error message. 
+    This is caused be a requirement of the auEduPersonSharedToken generator. It requires the entityID of the IdP to be passed to it when generated a shared token for a user.      Hello world does not provide this value. If the user already has a shared token it will be returned.
+
+    `https://[HOST_NAME]/idp/profile/admin/hello`
 
 ## Environmental data for your IdP in bootstrap-v4.ini 
 
