@@ -128,9 +128,9 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
     
     The IdP should be listening on port 443. Attempting to access the root level of the IdP will redirect you to https://example.edu/ [Note: You will change this address      later in the configuration].
     
-        `**https://[HOST_NAME]**`
-        `**https://[HOST_NAME]/idp**`
-        `**https://[HOST_NAME]/idp/shibboelth**`
+        `https://[HOST_NAME]
+           https://[HOST_NAME]/idp
+           https://[HOST_NAME]/idp/shibboelth`
         
    
    ## Errors during installation
