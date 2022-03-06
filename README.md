@@ -62,3 +62,11 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
      ```
 
    * `hostnamectl set-hostname <HOSTNAME>`
+
+
+6. Install Ansible Package
+   ```bash
+     sudo apt install ansible
+   ```
+   
+7. 
