@@ -150,26 +150,27 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
   When the scripts completes the mariadb, jetty and the IdP should be running. The IdP probably will not be able to authenticate and there may be some errors in the             Shibboleth log file /var/log/shibboleth-idp/idp-warn.log. This is a good start but indicates that additional configuration is required.
 
 
-
-    
-
-
 ## Environmental data for your IdP
 
-7. The following information is required by the IdP Installer and must be populated into the bootstrap-v4.ini file prior to running the installer.
+The following information is required by the IdP Installer and must be populated into the bootstrap-v4.ini file prior to running the installer.
 
-`Item	                                    Purpose
-Host Name	The public domain name of the IdP. May be used in determined the entityID of the IdP.
-Entity ID	The unique technical name of the IdP. If migrating from an older IdP then its entity id should be used on the new IdP.
-Environment	
+**Host Name**	The public domain name of the IdP. May be used in determined the entityID of the IdP.
 
-A determination of the PKIFED federation you wish to register your IdP within, being test or production. AAF Support can assist you in determining this
-Organisation Name	The human readable display name of your organisation
-Organisation base domain	e.g. example.edu, used for the scope of user's scoped attributes
-Install base	Where in the file system you want the IdP to be installed. The default is /opt
-Patch System Software	If enabled, the operating system software will be updated every time the IdP is deployed, that is the command "yum update -y" will be executed. If you have your own system patching regime in place you can disable this feature.
-(Default is enabled.)
-eduGAIN enabled	Additional configuration is enabled to allow the IdP to technically connect to eduGAIN. See AAF eduGAIN for more information and how to join eduGAIN. (Default is NOT enabled.)
-Local firewall enabled	If enabled, firewalld will be enabled and configured on the server allowing. (Default is enabled.)
-Back-Channel enabled	If enabled, the IdP will support back-channel requests. (Default is NOT enabled.)`
+**Entity ID**	The unique technical name of the IdP. If migrating from an older IdP then its entity id should be used on the new IdP.
+
+**Environment**	 A determination of the PKIFED federation you wish to register your IdP within, being test or production. 
+
+**Organisation Name**	The human readable display name of your organisation
+
+**Organisation base domain**	e.g. example.edu, used for the scope of user's scoped attributes
+
+**Install base**	Where in the file system you want the IdP to be installed. The default is /opt 
+
+**Patch System Software**	If enabled, the operating system software will be updated every time the IdP is deployed, that is the command "yum update -y" will be executed. If you have your own system patching regime in place you can disable this feature. (Default is enabled.)
+
+**eduGAIN enabled**	Additional configuration is enabled to allow the IdP to technically connect to eduGAIN. See AAF eduGAIN for more information and how to join eduGAIN. (Default is NOT enabled.)
+
+**Local firewall enabled**	If enabled, firewalld will be enabled and configured on the server allowing. (Default is enabled.)
+
+**Back-Channel enabled**	If enabled, the IdP will support back-channel requests. (Default is NOT enabled.)`
 
