@@ -168,7 +168,7 @@ The following information is required by the IdP Installer and must be populated
 
 **Patch System Software**	If enabled, the operating system software will be updated every time the IdP is deployed, that is the command "yum update -y" will be executed. If you have your own system patching regime in place you can disable this feature. (Default is enabled.)
 
-**eduGAIN enabled**	Additional configuration is enabled to allow the IdP to technically connect to eduGAIN. See AAF eduGAIN for more information and how to join eduGAIN. (Default is NOT enabled.)
+**eduGAIN enabled**	Additional configuration is enabled to allow the IdP to technically connect to eduGAIN. See eduGAIN for more information and how to join eduGAIN. (Default is enabled.)
 
 **Local firewall enabled**	If enabled, firewalld will be enabled and configured on the server allowing. (Default is enabled.)
 
