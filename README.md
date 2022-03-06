@@ -100,8 +100,31 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
      The bootstrap-v4 process will now install and configure your server to operate as a Shibboleth IdP. 
      
 
+9. Event logging
 
-10. 
+   The installer provides a detailed set of information indicating the steps it has undertaken on your server. You MAY disregard this output if the process completes            successfully.
+
+   For future review all installer output is logged to
+   
+   `/opt/shibboleth-idp-installer/activity.log`
+   
+   
+   ### Errors during installation
+
+   If an error occurs, the logs prior to installer termination MUST be reviewed to understand the underpinning cause.
+
+   Generally the installer SHOULD be executed once.
+
+   After the initial execution you’ll receive an error if you try to run bootstrap.sh again.
+
+   You MUST NOT re-run bootstrap-v4.sh if the installation process completed but you made a simple mistake. e.g.
+
+    Mistyped config in the [main], [ldap] or [advanced] sections
+
+    If you force bootstrap-v4.sh to run again once initial installation has completed the action MAY be destructive.
+
+    In this scenario you should continue with federation registration as documented below and then make any configuration changes necessary as documented within the            customisation stage following completion of the installation stage as documented below.
+ 
 ## Environmental data for your IdP
 
 7. The following information is required by the IdP Installer and must be populated into the bootstrap-v4.ini file prior to running the installer.
