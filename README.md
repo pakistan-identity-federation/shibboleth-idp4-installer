@@ -247,7 +247,7 @@ This action only upgrades the Ansilbe configuration, tasks and templates used to
 
 ## **Actions undertaken during an upgrade**
 
-The Ansible configuration is synced with the contents of the AAF IdP v4 installer Git Hub repository. Changes made by the AAF will be reflected in your repository ready for the next deployment. Changes could include
+The Ansible configuration is synced with the contents of the IdP v4 installer Git Hub repository. Changes made by the PKIFED will be reflected in your repository ready for the next deployment. Changes could include
 
     Minor bug fixes and improvements to the installer
     Changes to versions of software to be installer, generally Shibboleth or Jetty
