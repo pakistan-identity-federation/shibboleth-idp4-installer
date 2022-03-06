@@ -147,7 +147,7 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
 
    ## When Bootstrap-v4.sh completes
 
-    When the scripts completes the mariadb, jetty and the IdP should be running. The IdP probably will not be able to authenticate and there may be some errors in the             Shibboleth log file /var/log/shibboleth-idp/idp-warn.log. This is a good start but indicates that additional configuration is required.
+  When the scripts completes the mariadb, jetty and the IdP should be running. The IdP probably will not be able to authenticate and there may be some errors in the             Shibboleth log file /var/log/shibboleth-idp/idp-warn.log. This is a good start but indicates that additional configuration is required.
 
 
 
