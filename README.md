@@ -175,15 +175,6 @@ A dedicated Ubuntu 20.04 (virtual or physical) or RedHAT 7 or 8 or CentOS 7, 8 o
 
     `https://[HOST_NAME]/idp/profile/admin/hello`
 
-## Retrieving Attributes
-
-Use the aacli tool to verify initial attribute retrieval is working correctly. As root execute the following commands
-
-`cd /opt/shibboleth/shibboleth-idp/bin
-./aacli -n [username] -r https://validator.[test.]aaf.edu.au/shibboleth`
-
-The output should be some JSON with an attributes section shows all of the attributes that have been retrieved for the specified user.
-
 
 ## Environmental data for your IdP in bootstrap-v4.ini 
 
