@@ -137,6 +137,7 @@
         - '{{ installer.path }}'
 
     - include_tasks: tasks/system.yml
+    - include_tasks: tasks/letsencrypt-issue-jetty.yml
     - include_tasks: tasks/jetty.yml
     - include_tasks: tasks/db.yml
     - include_tasks: tasks/idp.yml
