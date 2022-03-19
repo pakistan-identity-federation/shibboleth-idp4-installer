@@ -24,7 +24,7 @@
       executable: /bin/bash
 
   - name: "Begin Let's Encrypt challenges"
-    letsencrypt:
+    acme_certificate:
       acme_directory: "{{ acme_directory }}"
       acme_version: "{{ acme_version }}"
       account_key_src: "{{ letsencrypt_account_key }}"
@@ -55,7 +55,7 @@
     with_dict: "{{ acme_challenge_your_domain['challenge_data'] }}"
 
   - name: "Complete Let's Encrypt challenges"
-    letsencrypt:
+    acme_certificate:
       acme_directory: "{{ acme_directory }}"
       acme_version: "{{ acme_version }}"
       account_key_src: "{{ letsencrypt_account_key }}"
@@ -66,4 +66,3 @@
       chain_dest: "{{ letsencrypt_certs_dir }}/chain_{{ domain_name }}.crt"
       fullchain_dest: "{{ letsencrypt_certs_dir }}/fullchain_{{ domain_name }}"
       data: "{{ acme_challenge_your_domain }}"
-
