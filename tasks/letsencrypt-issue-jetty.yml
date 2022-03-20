@@ -1,4 +1,8 @@
 ---
+  - name: "Pause 3 minutes to load Jetty Services"
+    pause:
+      minutes: 3
+      
   - name: "Create required directories in /etc/letsencrypt"
     file:
       path: "/etc/letsencrypt/{{ item }}"
