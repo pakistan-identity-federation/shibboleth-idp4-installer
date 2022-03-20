@@ -72,7 +72,7 @@
       path: '{{ jetty.base }}/credentials/idp-userfacing.p12'
       state: absent
  
-  - name: 'Create Web PKCS#12 archive'
+  - name: 'Apply Lets Encrypt Certifcate'
     openssl_pkcs12:
       action: export
       path: '{{ jetty.base }}/credentials/idp-userfacing.p12'
