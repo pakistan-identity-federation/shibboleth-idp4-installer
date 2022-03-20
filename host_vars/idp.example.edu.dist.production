@@ -114,10 +114,10 @@ acme_challenge_type: http-01
 acme_version: 2
 
 #Production Certificate
-acme_directory: https://acme-v02.api.letsencrypt.org/directory
+#acme_directory: https://acme-v02.api.letsencrypt.org/directory
 
 # Staging Testing Certifcate
-#acme_directory: https://acme-staging-v02.api.letsencrypt.org/directory
+acme_directory: https://acme-staging-v02.api.letsencrypt.org/directory
 
 # Local LetsEncrypt Directories
 letsencrypt_dir: /etc/letsencrypt
