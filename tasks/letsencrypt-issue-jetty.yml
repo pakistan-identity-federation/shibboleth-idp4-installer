@@ -66,3 +66,22 @@
       chain_dest: "{{ letsencrypt_certs_dir }}/chain_{{ domain_name }}.crt"
       fullchain_dest: "{{ letsencrypt_certs_dir }}/fullchain_{{ domain_name }}"
       data: "{{ acme_challenge_your_domain }}"
+   
+  - name: 'Remove PKCS#12 file'
+    openssl_pkcs12:
+      path: '{{ jetty.base }}/credentials/idp-userfacing.p12'
+      state: absent
+ 
+  - name: 'Create Web PKCS#12 archive'
+    openssl_pkcs12:
+      action: export
+      path: '{{ jetty.base }}/credentials/idp-userfacing.p12'
+      friendly_name: 'Web Site cert and key'
+      privatekey_path: '/etc/letsencrypt/keys/{{ inventory_hostname }}.key'
+      certificate_path: '/etc/letsencrypt/certs/{{ inventory_hostname }}.crt'
+      other_certificates: '/etc/letsencrypt/certs/chain_{{ inventory_hostname }}.crt'
+      passphrase: '{{ jetty.web_443_keystore_pw }}'
+      state: present
+      mode: 0640
+      owner: root
+      group: jetty
