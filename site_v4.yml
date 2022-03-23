@@ -138,14 +138,9 @@
         
     - name: 'Check /etc/letsencrypt/certs is empty or not'
       command: ls /etc/letsencrypt/certs
-      register: FoundFiles
-      
-    - name: "Check if a certificate is currently is expired or not"
-      community.crypto.x509_certificate_info:
-        path: /etc/letsencrypt/certs/{{ inventory_hostname }}.crt
       ignore_errors: True
-      register: cert_expiry
-
+      register: FoundFiles   
+   
     - name: "Get a cert from an https port"
       get_certificate:
         host: "{{ inventory_hostname }}"
@@ -154,11 +149,19 @@
       run_once: true
       ignore_errors: True
       register: cert
-
+    
+    - name: "Cert expiry status"
+     vars:
+       expire_status: "{{ (( cert.expired )) }}"
+     shell: echo "{{ expire_status }}"
+     ignore_errors: True
+     register: Expiry_Result
+    
     - name: "How many days until cert expires"
       vars:
         expire_days: "{{ (( cert.not_after | to_datetime('%Y%m%d%H%M%SZ')) - (ansible_date_time.iso8601 | to_datetime('%Y-%m-%dT%H:%M:%SZ')) ).days }}"
       shell: echo "{{ expire_days }}"
+      ignore_errors: True
       register: Num_of_ExpiryDays
     
     - include_tasks: tasks/system.yml
@@ -174,7 +177,7 @@
     - include_tasks: tasks/local_conf.yml
     - include_tasks: tasks/final.yml
     - include_tasks: tasks/letsencrypt-issue-jetty.yml
-      when: FoundFiles.stdout == "" or cert_expiry.expired or Num_of_ExpiryDays.stdout < '14'
+      when: FoundFiles.stdout == "" or Expiry_Result.stdout == 'True' or Num_of_ExpiryDays.stdout < '14'
     - include_tasks: tasks/final.yml
 
   handlers:
