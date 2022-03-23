@@ -339,7 +339,12 @@
     owner: jetty
     group: jetty
     force: yes 
-    
+
+- name: 'Check /opt/shibboleth/jetty/credentials is empty or not'
+  command: ls '{{ jetty.base }}/credentials'
+  ignore_errors: True
+  register: FoundFiles_Cert
+
 - name: 'Create Web PKCS#12 archive'
   openssl_pkcs12:
     action: export
@@ -353,3 +358,4 @@
     mode: 0640
     owner: root
     group: jetty
+  when: FoundFiles_Cert.stdout == ""    
