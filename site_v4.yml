@@ -151,11 +151,11 @@
       register: cert
     
     - name: "Cert expiry status"
-     vars:
+      vars:
        expire_status: "{{ (( cert.expired )) }}"
-     shell: echo "{{ expire_status }}"
-     ignore_errors: True
-     register: Expiry_Result
+      shell: echo "{{ expire_status }}"
+      ignore_errors: True
+      register: Expiry_Result
     
     - name: "How many days until cert expires"
       vars:
