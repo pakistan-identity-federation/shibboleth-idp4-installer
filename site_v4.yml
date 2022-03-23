@@ -177,7 +177,7 @@
     - include_tasks: tasks/local_conf.yml
     - include_tasks: tasks/final.yml
     - include_tasks: tasks/letsencrypt-issue-jetty.yml
-      when: FoundFiles.stdout == "" or Expiry_Result.stdout == 'True' or Num_of_ExpiryDays.stdout == '14'
+      when: FoundFiles.stdout == "" or Expiry_Result.stdout == 'True' or Num_of_ExpiryDays.stdout | int <= 14
     - include_tasks: tasks/final.yml
 
   handlers:
