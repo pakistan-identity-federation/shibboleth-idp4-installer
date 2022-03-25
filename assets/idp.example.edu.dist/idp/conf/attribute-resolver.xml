@@ -72,10 +72,10 @@
     <InputDataConnector ref="myLDAP" attributeNames="displayName" />
     </AttributeDefinition>
 	
-	<!-- o (Organisation) -->
+	<!-- o (Organisation) 
     <AttributeDefinition xsi:type="Simple" id="o">
         <InputDataConnector ref="staticAttributes" attributeNames="o" />
-    </AttributeDefinition>
+    </AttributeDefinition> -->
 	
 	<!-- auEduPersonSharedToken 
     <AttributeDefinition id="auEduPersonSharedToken" xsi:type="Simple">
