@@ -1,7 +1,7 @@
 ---
-  - name: "Pause 5 minutes to load Jetty Services"
+  - name: "Pause 3 minutes to load Jetty Services"
     pause:
-      minutes: 5
+      minutes: 3
       
   - name: "Create required directories in /etc/letsencrypt"
     file:
