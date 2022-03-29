@@ -89,3 +89,10 @@
       mode: 0640
       owner: root
       group: jetty
+
+  - cron:
+      name: 'Make Crontab entry to run LetsEncrypt script'
+      user: root
+      minute: "30"
+      hour: "3"
+      job: /opt/shibboleth-idp4-installer/repository/LetsEncrypt_Script.sh >> /opt/le-renew.log
