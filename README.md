@@ -13,7 +13,7 @@ This installer is forked from AAF's shibboleth idp installer repository with som
 
 This version now enables the technical connection to eduGAIN, the global federation of federations.
 
-This release is for Shibboleth version 4.1.6 running on Jetty 9.4.46
+This release is for Shibboleth version 4.2.1 running on Jetty 9.4.46
 
 ## License
 Apache License Version 2.0, January 2004
