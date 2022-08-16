@@ -65,6 +65,7 @@
       account_key_src: "{{ letsencrypt_account_key }}"
       account_email: "{{ acme_email }}"
       challenge: "{{ acme_challenge_type }}"
+      force: true
       csr: "{{ letsencrypt_csrs_dir }}/{{ domain_name }}.csr"
       dest: "{{ letsencrypt_certs_dir }}/{{ domain_name }}.crt"
       chain_dest: "{{ letsencrypt_certs_dir }}/chain_{{ domain_name }}.crt"
