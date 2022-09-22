@@ -69,7 +69,11 @@
 - name: 'Create db user'
   mysql_user: 'name={{ db.username }} password={{ db.password }} priv={{ db.name }}.*:ALL state=present'
   register: db_user
-  
+
+- name: 'Create db user for statso db'
+  mysql_user: 'name=statso_admin  password={{ db.password }} priv=statso.*:ALL state=present'
+  register: db_user
+
 - name: 'Copy over statso schema'
   template:
     src: templates/db/statso.sql
