@@ -47,3 +47,4 @@ CREATE TABLE `wayfless` (
   `category` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+
