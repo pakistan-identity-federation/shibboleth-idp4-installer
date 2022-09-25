@@ -32,7 +32,6 @@ CREATE TABLE `idpdetails` (
 --
 -- Dumping data for table `idpdetails`
 --
-
 LOCK TABLES `idpdetails` WRITE;
 /*!40000 ALTER TABLE `idpdetails` DISABLE KEYS */;
 /*!40000 ALTER TABLE `idpdetails` ENABLE KEYS */;
